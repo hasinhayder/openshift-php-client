@@ -18,7 +18,23 @@ class OpenShiftDispatcher{
         return $data;
   }
 
-  function dispatch($requestType, $requestUrl, $requestParams){
+  function get($requestUrljsonDecode=true){
+      $data =  $this->dispatch("GET",$requestUrl);
+      if($jsonDecode) 
+        return json_decode($data);
+      else
+        return $data;
+  }
+
+  function delete($requestUrljsonDecode=true){
+      $data =  $this->dispatch("DELETE",$requestUrl);
+      if($jsonDecode) 
+        return json_decode($data);
+      else
+        return $data;
+  }
+
+  function dispatch($requestType, $requestUrl, $requestParams=array()){
     if(function_exists("curl_init")){
       $auth = $this->auth;
       $username = $auth->getUser();
