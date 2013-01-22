@@ -1,0 +1,1 @@
+openshiftdomain.php
