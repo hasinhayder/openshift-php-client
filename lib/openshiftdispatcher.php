@@ -34,6 +34,8 @@ class OpenShiftDispatcher{
       $data = curl_exec($process);
       curl_close($process);
       return $data;
+    }else {
+      throw new Exception("PHP-CURL library is required which is missing.")
     }
   }
 
