@@ -10,7 +10,7 @@ class OpenShiftDispatcher{
     $this->auth = $auth;
   }
 
-  function post($requestUrl, $requestParams,jsonDecode=true){
+  function post($requestUrl, $requestParams,$jsonDecode=true){
       $data =  $this->dispatch("POST",$requestUrl,$requestParams);
       if($jsonDecode) 
         return json_decode($data);
@@ -51,7 +51,7 @@ class OpenShiftDispatcher{
       curl_close($process);
       return $data;
     }else {
-      throw new Exception("PHP-CURL library is required which is missing.")
+      throw new Exception("PHP-CURL library is required which is missing.");
     }
   }
 

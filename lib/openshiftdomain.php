@@ -5,12 +5,12 @@ class OpenShiftDomain{
   private $auth;
   private $dispatcher;
 
-  public __construct(OpenShiftAuth $auth, OpenShiftDispatcher $dispatcher){
-    $this->auth = $auth;
+  public function __construct(OpenShiftDispatcher $dispatcher){
+    // $this->auth = $auth;
     $this->dispatcher = $dispatcher;
   }
 
-  public getDomains(){
+  public function getDomains(){
     $url = $this->endpoint;
     $data = $this->dispatcher->get($url);
   }
