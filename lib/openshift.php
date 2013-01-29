@@ -32,7 +32,7 @@ class OpenShift{
 
   public  function getDomainManager(){
     if(!$this->domainManager){
-      $this->domainManager = new OpenShiftDomainManagaer();
+      $this->domainManager = new OpenShiftDomainManager();
     }
     return $this->domainManager;
   }

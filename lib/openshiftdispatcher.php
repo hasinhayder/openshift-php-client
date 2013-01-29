@@ -43,7 +43,7 @@ class OpenShiftDispatcher{
   }
 
   function dispatch($requestType, $requestUrl, $requestParams=array()){
-    echo $requestUrl;
+    //echo $requestUrl;
     try
     {
       if(function_exists("curl_init")){
