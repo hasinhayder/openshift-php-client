@@ -78,7 +78,7 @@ class OpenShiftApp{
       $this->setBuildJobUrl($propBundle->build_job_url);
       $this->setBuildingApp($propBundle->building_app);
       $this->setCreationTime($propBundle->creation_time);
-      foreach($app->embedded as $name=>$cartridge){
+      foreach($propBundle->embedded as $name=>$cartridge){
         $this->_addCartridge($name,$cartridge);
       } 
       $this->setFramework($propBundle->framework);
@@ -105,32 +105,30 @@ class OpenShiftApp{
   }
 
   private function fetchDetails(){
-    if(!$this->hasDetails()){
-      $openshift = ObjectBroker::get("openshift");
-      $dispatcher = $openshift->getDispatcher();
-      $url = "https://openshift.redhat.com/broker/rest/domains/{$this->domainId}/applications/{$this->appName}";
-      $data = $dispatcher->get($url);
-      $propBundle = $data->data;
+    $openshift = ObjectBroker::get("openshift");
+    $dispatcher = $openshift->getDispatcher();
+    $url = "https://openshift.redhat.com/broker/rest/domains/{$this->domainId}/applications/{$this->appName}";
+    $data = $dispatcher->get($url);
+    $propBundle = $data->data;
 
-      $this->setAliases($propBundle->aliases);
-      $this->setAppUrl($propBundle->app_url);
-      $this->setBuildingWith($propBundle->building_with);
-      $this->setBuildJobUrl($propBundle->build_job_url);
-      $this->setBuildingApp($propBundle->building_app);
-      $this->setCreationTime($propBundle->creation_time);
-      foreach($app->embedded as $name=>$cartridge){
-        $this->_addCartridge($name,$cartridge);
-      } 
-      $this->setFramework($propBundle->framework);
-      $this->setGearCount($propBundle->gear_count);
-      $this->setGearProfile($propBundle->gear_profile);
-      $this->setGitUrl($propBundle->git_url);
-      $this->setSshUrl($propBundle->ssh_url);
-      $this->setScalable($propBundle->scalable);
-      $this->setUuid($propBundle->uuid);
+    $this->setAliases($propBundle->aliases);
+    $this->setAppUrl($propBundle->app_url);
+    $this->setBuildingWith($propBundle->building_with);
+    $this->setBuildJobUrl($propBundle->build_job_url);
+    $this->setBuildingApp($propBundle->building_app);
+    $this->setCreationTime($propBundle->creation_time);
+    foreach($propBundle->embedded as $name=>$cartridge){
+      $this->_addCartridge($name,$cartridge);
+    } 
+    $this->setFramework($propBundle->framework);
+    $this->setGearCount($propBundle->gear_count);
+    $this->setGearProfile($propBundle->gear_profile);
+    $this->setGitUrl($propBundle->git_url);
+    $this->setSshUrl($propBundle->ssh_url);
+    $this->setScalable($propBundle->scalable);
+    $this->setUuid($propBundle->uuid);
 
-      $this->makeZombie();
-    }
+    $this->makeZombie();
   }
 
   public function getAppDetails(){

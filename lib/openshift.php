@@ -1,4 +1,11 @@
 <?php
+include_once("openshiftauth.php");
+include_once("openshiftdispatcher.php");
+include_once("openshiftdomains.php");
+include_once("openshiftdomain.php");
+include_once("openshiftapp.php");
+include_once("openshiftcartridge.php");
+include_once("objectbroker.php");
 class OpenShift{
   private $auth;
   private $dispatcher;
