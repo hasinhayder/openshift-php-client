@@ -56,6 +56,19 @@ class OpenShiftDomain{
     return $data;
   }
 
+  /** 
+  * Valid Cartridge Names Are
+  * [0] => mongodb-2.2  
+  * [1] => switchyard-0.6
+  * [2] => cron-1.4
+  * [3] => haproxy-1.4
+  * [4] => 10gen-mms-agent-0.1
+  * [5] => phpmyadmin-3.4
+  * [6] => metrics-0.1
+  * [7] => rockmongo-1.1
+  * [8] => jenkins-client-1.4
+  */
+  
   public function createApplication($name,$cartridge,$template,$scale,$gearProfile="small"){
     $openshift = ObjectBroker::get("openshift");
     $dispatcher = $openshift->getDispatcher();
