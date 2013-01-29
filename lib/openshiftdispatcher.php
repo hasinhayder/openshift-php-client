@@ -1,7 +1,12 @@
 <?php
-/**
- * HTTP Request dispatcher using Curl
+
+/* 
+ * OpenShift PHP Rest Client Library
+ * @author Hasin Hayder | hasin@leevio.com
+ * @license MIT License 
+ * @link https://github.com/hasinhayder/openshift-php-client
  */
+
 class OpenShiftDispatcher{
   private $auth;
   private $endpoint = "https://openshift.redhat.com/broker/rest/api";

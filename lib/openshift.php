@@ -1,4 +1,12 @@
 <?php
+
+/* 
+ * OpenShift PHP Rest Client Library
+ * @author Hasin Hayder | hasin@leevio.com
+ * @license MIT License 
+ * @link https://github.com/hasinhayder/openshift-php-client
+ */
+
 include_once("openshiftauth.php");
 include_once("openshiftdispatcher.php");
 include_once("openshiftdomainmanager.php");

@@ -1,5 +1,12 @@
 <?php
 
+/* 
+ * OpenShift PHP Rest Client Library
+ * @author Hasin Hayder | hasin@leevio.com
+ * @license MIT License 
+ * @link https://github.com/hasinhayder/openshift-php-client
+ */
+
 class OpenShiftApp{
   private $appName;
   private $aliases;
