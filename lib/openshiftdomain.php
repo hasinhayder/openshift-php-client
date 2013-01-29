@@ -68,7 +68,7 @@ class OpenShiftDomain{
   * [7] => rockmongo-1.1
   * [8] => jenkins-client-1.4
   */
-  
+
   public function createApplication($name,$cartridge,$template,$scale,$gearProfile="small"){
     $openshift = ObjectBroker::get("openshift");
     $dispatcher = $openshift->getDispatcher();
@@ -79,7 +79,7 @@ class OpenShiftDomain{
       "cartridge"=>$cartridge,
       "template"=>$template,
       "scale"=>$scale,
-      "gear_profile" = $gearProfile,
+      "gear_profile" => $gearProfile,
     );
     $data = $dispatcher->post($url,$params);
     return $data;

@@ -6,6 +6,7 @@ include_once("openshiftdomain.php");
 include_once("openshiftapp.php");
 include_once("openshiftcartridge.php");
 include_once("objectbroker.php");
+
 class OpenShift{
   private $auth;
   private $dispatcher;
@@ -16,6 +17,7 @@ class OpenShift{
       ObjectBroker::register("openshift",$this);
       ObjectBroker::register("auth",$this->auth);
       ObjectBroker::register("dispatcher",$this->dispatcher);
+      return $this; //for method chaining
     }
   }
 

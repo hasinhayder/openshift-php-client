@@ -94,6 +94,8 @@ class OpenShiftApp{
       if($preFetchDetails)
         $this->fetchDetails();
     }
+
+    return $this; //for method chaining
   }
 
   public function hasDetails() {
