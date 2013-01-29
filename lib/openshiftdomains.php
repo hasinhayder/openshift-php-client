@@ -38,4 +38,13 @@ class OpenShiftDomains{
 
     return $this->domains[strtolower($domainName)];
   }
+
+  public function createDomain($domainName){
+    $openshift = ObjectBroker::get("openshift");
+    $dispatcher = $openshift->getDispatcher();
+    $url = "https://openshift.redhat.com/broker/rest/domains/";
+    $params = array("id"=>$domainName);
+    $data = $dispatcher->post($url,$params);
+    return $data;
+  }
 }
