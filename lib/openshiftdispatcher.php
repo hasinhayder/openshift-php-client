@@ -50,7 +50,6 @@ class OpenShiftDispatcher{
         $username = $auth->getUser();
         $password = $auth->getPassword();
         $process = curl_init($requestUrl);
-        echo $username.":".$password.":".$requestUrl;
         //curl_setopt($process, CURLOPT_HEADER, 1);
         curl_setopt($process, CURLOPT_USERPWD, $username . ":" . $password);
         curl_setopt($process, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
@@ -60,12 +59,11 @@ class OpenShiftDispatcher{
         curl_setopt($process, CURLOPT_RETURNTRANSFER, TRUE);
         curl_setopt ($process, CURLOPT_SSL_VERIFYHOST, 0);
         curl_setopt ($process, CURLOPT_SSL_VERIFYPEER, 0); 
-        echo "1";
         $data = curl_exec($process);
         print_r($data);
         return $data;
       }else {
-        throw new Exception("PHP-CURL library is required which is missing.");
+        throw new Exception("PHP-CURL library is required but missing.");
       }
     }
     catch(Exception $e)

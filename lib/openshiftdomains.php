@@ -30,11 +30,11 @@ class OpenShiftDomains{
   }
 
   public function getDomain($domainName){
-    if(!$this->domains)
-      $this->getDomains();
+    // if(!$this->domains)
+    //   $this->getDomains();
 
     if(!$this->domains[strtolower($domainName)])
-      throw new Exception("Invalid Domain Name", 1);
+      $this->domains[strtolower($domainName)] = new OpenShiftDomain($domainName);
 
     return $this->domains[strtolower($domainName)];
   }
