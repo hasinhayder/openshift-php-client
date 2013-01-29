@@ -58,19 +58,31 @@ class OpenShiftDomain{
 
   /** 
   * Valid Cartridge Names Are
+  * [0] => nodejs-0.6
+  * [1] => zend-5.6
+  * [2] => ruby-1.9
+  * [3] => jbossas-7
+  * [4] => python-2.6
+  * [5] => jenkins-1.4
+  * [6] => ruby-1.8
+  * [7] => jbosseap-6.0
+  * [8] => diy-0.1
+  * [9] => jbossews-1.0
+  * [10] => php-5.3
+  * [11] => perl-5.10
   */
 
-  public function createApplication($name,$cartridge,$template=false,$scale=false,$gearProfile="small"){
+  public function createApplication($name,$cartridge,$initialGitRepoUrl="",$scale=false,$gearProfile="small"){
     $openshift = ObjectBroker::get("openshift");
     $dispatcher = $openshift->getDispatcher();
 
-    $url = "https://openshift.redhat.com/broker/rest/domains/{$this->domainName}/applications/";
+    $url = "https://openshift.redhat.com/broker/rest/domains/{$this->domainName}/applications";
     $params = array(
       "name"=>$name, 
       "cartridge"=>$cartridge,
-      "template"=>$template,
       "scale"=>$scale,
       "gear_profile" => $gearProfile,
+      "init_git_url"=>$initialGitRepoUrl,
     );
     $data = $dispatcher->post($url,$params);
     return $data;
