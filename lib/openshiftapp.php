@@ -82,6 +82,8 @@ class OpenShiftApp{
       $this->setSshUrl($propBundle->ssh_url);
       $this->setScalable($propBundle->scalable);
       $this->setUuid($propBundle->uuid);
+
+      $this->makeZombie();
     }
   }
 
