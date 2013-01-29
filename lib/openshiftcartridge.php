@@ -60,12 +60,13 @@ class OpenShiftCartridge{
     return $data;
   }
   public function delete(){
-    throw new Exception("Sorry dude, considering the risk - we have disabled deleting cartridges from this Library.");
-    // $openshift = ObjectBroker::get("openshift");
-    // $dispatcher = $openshift->getDispatcher();
-    // $url = "https://openshift.redhat.com/broker/rest/domains/{$this->domainId}/applications/{$this->appName}/cartridges/{$this->cartridgeName}/events";
-    // $params = array("event"=>"reload");
-    // $data = $dispatcher->delete($url);
-    // return $data;
+    // throw new Exception("Sorry dude, considering the risk - we have disabled deleting cartridges from this Library.");
+    $openshift = ObjectBroker::get("openshift");
+    $dispatcher = $openshift->getDispatcher();
+    $url = "https://openshift.redhat.com/broker/rest/domains/{$this->domainId}/applications/{$this->appName}/cartridges/{$this->cartridgeName}";
+    echo $url;
+    $params = array("event"=>"delete");
+    $data = $dispatcher->delete($url);
+    return $data;
   }
 }

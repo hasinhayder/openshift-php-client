@@ -17,6 +17,7 @@ class OpenShiftApp{
   private $uuid;
   private $scalable;
   private $cartridges;
+  private $_cartridges;
   private $hasDetails = false;
 
   /* popuated later */
@@ -133,7 +134,7 @@ class OpenShiftApp{
     $this->makeZombie();
   }
 
-  public function getAppDetails(){
+  public function getDetails(){
     $openshift = ObjectBroker::get("openshift");
     $dispatcher = $openshift->getDispatcher();
     $url = "https://openshift.redhat.com/broker/rest/domains/{$this->domainId}/applications/{$this->appName}";
@@ -307,6 +308,7 @@ class OpenShiftApp{
   * [6] => metrics-0.1
   * [7] => rockmongo-1.1
   * [8] => jenkins-client-1.4
+  * [9] => mysql-5.1
   */
   public function addCartridge($name){
     $openshift = ObjectBroker::get("openshift");
@@ -329,6 +331,13 @@ class OpenShiftApp{
     $url = "https://openshift.redhat.com/broker/rest/domains/{$this->domainId}/applications/{$this->appName}/dns_resolvable";
     $data = $dispatcher->get($url);
     return $data;
+  }
+
+  public function getCartridge($name){
+    if(!$this->_cartridges[$name])
+      $this->_cartridges[$name] = new OpenShiftCartridge($name, $this->appName,$this->domainId);
+
+    return $this->_cartridges[$name];
   }
 
 }
