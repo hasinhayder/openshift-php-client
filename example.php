@@ -1,4 +1,14 @@
 <?php
+
+
+/* 
+ * OpenShift PHP Rest Client Library Example
+ * @author Hasin Hayder | hasin@leevio.com | www.hasin.me
+ * @license MIT License 
+ * @link https://github.com/hasinhayder/openshift-php-client
+ */
+
+
 include_once("lib/openshift.php");
 
 $username = "YourUsername";
