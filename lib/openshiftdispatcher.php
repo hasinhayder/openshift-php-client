@@ -43,6 +43,7 @@ class OpenShiftDispatcher{
   }
 
   function dispatch($requestType, $requestUrl, $requestParams=array()){
+    echo $requestUrl;
     try
     {
       if(function_exists("curl_init")){
@@ -60,7 +61,6 @@ class OpenShiftDispatcher{
         curl_setopt ($process, CURLOPT_SSL_VERIFYHOST, 0);
         curl_setopt ($process, CURLOPT_SSL_VERIFYPEER, 0); 
         $data = curl_exec($process);
-        print_r($data);
         return $data;
       }else {
         throw new Exception("PHP-CURL library is required but missing.");

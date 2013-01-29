@@ -17,7 +17,6 @@ class OpenShift{
   }
 
   public function getDispatcher(){
-    print_r($this->dispatcher);
     return $this->dispatcher;
   }
 

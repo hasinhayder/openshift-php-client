@@ -6,7 +6,6 @@ class OpenShiftDomain{
 
   public function __construct($domainName){
     $openShift = ObjectBroker::get("openshift");
-    
     $this->dispatcher = $openShift->getDispatcher();
     $this->domainName= $domainName;
   }
@@ -29,6 +28,7 @@ class OpenShiftDomain{
   }
 
   function getApps(){
+    echo "Apps Called";
     $url = "https://openshift.redhat.com/broker/rest/domains/{$this->domainName}/applications";
     $apps = $this->dispatcher->get($url);
     return $apps;
