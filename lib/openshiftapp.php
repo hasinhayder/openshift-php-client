@@ -103,7 +103,6 @@ class OpenShiftApp{
         $this->fetchDetails();
     }
 
-    return $this; //for method chaining
   }
 
   public function hasDetails() {

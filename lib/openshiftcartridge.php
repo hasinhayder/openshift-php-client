@@ -17,7 +17,6 @@ class OpenShiftCartridge{
     $this->domainId = $domainName;
     $this->appName = $appName;
     $this->cartridgeName = $cartridgeName;
-    return $this; //for method chaining
   }
 
   public function getCartridgeDetails(){
