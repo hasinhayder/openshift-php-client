@@ -4,8 +4,9 @@ class OpenShiftDomain{
   private $domainName= "";
   private $dispatcher;
 
-  public function __construct($domainName, OpenShift $openShift){
+  public function __construct($domainName){
     $openShift = ObjectBroker::get("openshift");
+    
     $this->dispatcher = $openShift->getDispatcher();
     $this->domainName= $domainName;
   }
@@ -22,7 +23,7 @@ class OpenShiftDomain{
 
   function delete($domainName){
     $url = "https://openshift.redhat.com/broker/rest/domains/{$domainName}";
-    throw new Exception("Sorry dude, considering the risk - we have disabled deleting domains from this Library.")
+    throw new Exception("Sorry dude, considering the risk - we have disabled deleting domains from this Library.");
     // $data = $this->dispatcher->delete($url);
     // return $data;
   }

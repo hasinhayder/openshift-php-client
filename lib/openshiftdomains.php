@@ -13,7 +13,7 @@ class OpenShiftDomains{
 
   public function getDomains(){
     $domainNames = array();
-    if(!$this->domains){
+    if($this->domains){
       foreach ($this->domains as $key => $value) {
         $domainNames[] = $key;
       }
