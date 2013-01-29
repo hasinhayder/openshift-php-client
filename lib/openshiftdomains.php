@@ -38,6 +38,4 @@ class OpenShiftDomains{
 
     return $this->domains[strtolower($domainName)];
   }
-
-  
 }

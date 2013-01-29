@@ -29,7 +29,6 @@ class OpenShiftDomain{
   }
 
   public function getApps(){
-    echo "Apps Called";
     $url = "https://openshift.redhat.com/broker/rest/domains/{$this->domainName}/applications";
     $apps = $this->dispatcher->get($url);
     foreach ($apps->data as $app){
@@ -39,10 +38,21 @@ class OpenShiftDomain{
     return $apps;
   }
 
-  public function getApp($appName){
+  public function getApp($appName, $preFetchDetails = true){
     if(!$this->apps[$appName]){
+      if($preFetchDetails)
       $this->apps[$appName] = new OpenShiftApp($appName, $this->domainName);
+        else
+      $this->apps[$appName] = new OpenShiftApp($appName, $this->domainName,false,false);
     }
     return $this->apps[$appName];
+  }
+
+  public function getDomainDetails(){
+    $openshift = ObjectBroker::get("openshift");
+    $dispatcher = $openshift->getDispatcher();
+    $url = "https://openshift.redhat.com/broker/rest/domains/{$this->domainName}";
+    $data = $dispatcher->get($url);
+    return $data;
   }
 }
