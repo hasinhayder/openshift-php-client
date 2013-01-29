@@ -55,4 +55,20 @@ class OpenShiftDomain{
     $data = $dispatcher->get($url);
     return $data;
   }
+
+  public function createApplication($name,$cartridge,$template,$scale,$gearProfile="small"){
+    $openshift = ObjectBroker::get("openshift");
+    $dispatcher = $openshift->getDispatcher();
+
+    $url = "https://openshift.redhat.com/broker/rest/domains/{$this->domainId}/applications/applications";
+    $params = array(
+      "name"=>$name, 
+      "cartridge"=>$cartridge,
+      "template"=>$template,
+      "scale"=>$scale,
+      "gear_profile" = $gearProfile,
+    );
+    $data = $dispatcher->post($url,$params);
+    return $data;
+  }
 }
