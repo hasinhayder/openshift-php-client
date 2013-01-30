@@ -38,8 +38,8 @@ class OpenShiftDomainManager{
   }
 
   public function getDomain($domainName){
-    // if(!$this->domains)
-    //   $this->getDomains();
+     if(!$this->domains)
+       $this->getDomains();
 
     if(!$this->domains[strtolower($domainName)])
       $this->domains[strtolower($domainName)] = new OpenShiftDomain($domainName);

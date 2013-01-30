@@ -32,18 +32,20 @@ class OpenShiftUser{
     $openshift = ObjectBroker::get("openshift");
     $dispatcher = $openshift->getDispatcher();
     $url = "https://openshift.redhat.com/broker/rest/user/keys";
-    $params = array("name"=>$name,"type"=>$type,"content"=>urlencode($content))
+    $params = array("name"=>$name,"type"=>$type,"content"=>urlencode($content));
     $data = $dispatcher->post($url,$params);
     return $data;
   }
-  public function addSshKey($name, $type, $content){
+
+    /*
+    public function addSshKey($name, $type, $content){
     $openshift = ObjectBroker::get("openshift");
     $dispatcher = $openshift->getDispatcher();
     $url = "https://openshift.redhat.com/broker/rest/user/keys/{$keyName}";
     $params = array("type"=>$type,"content"=>urlencode($content))
     $data = $dispatcher->put($url,$params);
     return $data;
-  }
+  } */
 
   public function deleteSshKey($keyName){
     $openshift = ObjectBroker::get("openshift");
