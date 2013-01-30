@@ -3,6 +3,7 @@
 /* 
  * OpenShift PHP Rest Client Library
  * @author Hasin Hayder | hasin@leevio.com | www.hasin.me
+ * @author Abu Ashraf Masnun | masnun@gmail.com | www.masnun.me
  * @license MIT License 
  * @link https://github.com/hasinhayder/openshift-php-client
  */
@@ -18,7 +19,7 @@ class ObjectBroker
         self::$stack[$key] = $value;
     }
 
-    //TODO: Change to static
+
     public static function get($key)
     {
         $object = self::$stack[$key];
