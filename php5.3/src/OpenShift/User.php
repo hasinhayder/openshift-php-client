@@ -3,6 +3,7 @@
 /* 
  * OpenShift PHP Rest Client Library
  * @author Hasin Hayder | hasin@leevio.com | www.hasin.me
+ * @author Abu Ashraf Masnun | masnun@gmail.com | www.masnun.me
  * @license MIT License 
  * @link https://github.com/hasinhayder/openshift-php-client
  */
@@ -43,18 +44,6 @@ class User
         $data = $dispatcher->post($url, $params);
         return $data;
     }
-
-    //TODO: Remove duplication
-
-    /*
-  public function addSshKey($name, $type, $content){
-    $openshift = ObjectBroker::get("openshift");
-    $dispatcher = $openshift->getDispatcher();
-    $url = "https://openshift.redhat.com/broker/rest/user/keys/{$keyName}";
-    $params = array("type"=>$type,"content"=>urlencode($content))
-    $data = $dispatcher->put($url,$params);
-    return $data;
-  } */
 
     public function deleteSshKey($keyName)
     {
