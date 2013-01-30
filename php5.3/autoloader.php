@@ -1,5 +1,9 @@
 <?php
 
+// Source: https://gist.github.com/raw/221634/2bc31f04b0ed0ef70daab68516c8d17ba0753f5e/SplClassLoader.php
+
+
+
 class SplClassLoader
 {
     private $_fileExtension = '.php';
