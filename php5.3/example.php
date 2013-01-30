@@ -4,7 +4,8 @@
 /* 
  * OpenShift PHP Rest Client Library Example
  * @author Hasin Hayder | hasin@leevio.com | www.hasin.me
- * @license MIT License 
+ * @author Abu Ashraf Masnun | masnun@gmail.com | www.masnun.me
+ * @license MIT License
  * @link https://github.com/hasinhayder/openshift-php-client
  */
 
