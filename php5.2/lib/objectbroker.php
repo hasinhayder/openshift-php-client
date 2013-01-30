@@ -14,7 +14,7 @@ class ObjectBroker{
     self::$stack[$key]=$value;
   }
 
-  public function get($key){
+  public static function get($key){
     $object  = self::$stack[$key];
     if(!$object) 
       throw new Exception("Object not found", 1);
